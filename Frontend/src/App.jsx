@@ -24,6 +24,14 @@ function App() {
     const response = await axios.post('https://lintro.onrender.com/ai/get-review', { code })
     setReview(response.data)
   }
+  const editorStyle = {
+    fontFamily: '"Fira code", "Fira Mono", monospace',
+    fontSize: '16px',
+    height: '100%',
+    width: '100%',
+    backgroundColor: '#1e1e1e',
+    color: '#fff',
+  }
 
   return (
     <>
@@ -35,14 +43,7 @@ function App() {
               onValueChange={code => setCode(code)}
               highlight={code => prism.highlight(code, prism.languages.javascript, "javascript")}
               padding={10}
-              style={{
-                fontFamily: '"Fira code", "Fira Mono", monospace',
-                fontSize: 16,
-                border: "1px solid #ddd",
-                borderRadius: "5px",
-                height: "100%",
-                width: "100%"
-              }}
+              style={editorStyle}
             />
           </div>
           <div
